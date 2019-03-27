@@ -290,7 +290,7 @@ chart.updateChart({ data: new_chart_data });
 ```
 
 ## To be done
-* Chart orientation (horizontal/vertical bar),
+* Chart orientation (horizontal/vertical bars),
 * Display values on bars
 * Different types of scale (time scale for x or y axis),
 * ...
