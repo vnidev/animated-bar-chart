@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+   <title>
+      Animated Bar Chart
+   </title>
+   <link rel="stylesheet" href="../dist/bar.chart.min.css" />
+   <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+   <script src='https://d3js.org/d3.v5.min.js'></script>
+   <script src="../dist/jquery.bar.chart.min.js"></script>
+</head>
+<body>
+   <div id="chtAnimatedBarChart" class="bcBar"></div>
+
+   <a href='javascript:initChartAll()'>All data</a> |
+   <a href='javascript:initChartSome()'>Filtered data</a>
+</body>
+<script>
+   var chart;
+
+   $(function() {
+      initChart();
+   });
+
+   initChart = function() {
+      var data = getData();
+      chart = $('#chtAnimatedBarChart').animatedBarChart({
+         data: data,
+         params: {
+            group_name: 'group_name',
+            name: 'month',
+            value: 'employees_no'
+         },
+         bars: {
+            hover_name_text: 'month',
+            hover_value_text: 'employees no'
+         },
+         x_grid_lines: false
+      });
+   }
+
+   initChartAll = function() {
+      var data = getData();
+      chart.updateChart({ data: data });
+   }
+
+   initChartSome = function() {
+      var data = getFilteredData();
+      chart.updateChart({ data: data });
+   }
+
+   getData = function() {
+      return [
+         { "id": 1, "group_name": "Google", "month": "Jan", "employees_no": 38367 },
+         { "id": 2, "group_name": "Google", "month": "Feb", "employees_no": 32684 },
+         { "id": 3, "group_name": "Google", "month": "Mar", "employees_no": 28236 },
+         { "id": 4, "group_name": "Google", "month": "Apr", "employees_no": 44205 },
+         { "id": 5, "group_name": "Google", "month": "May", "employees_no": 3357 },
+         { "id": 6, "group_name": "Google", "month": "Jun", "employees_no": 3511 },
+         { "id": 7, "group_name": "Google", "month": "Jul", "employees_no": 10372 },
+         { "id": 8, "group_name": "Google", "month": "Aug", "employees_no": 15565 },
+         { "id": 9, "group_name": "Google", "month": "Sep", "employees_no": 23752 },
+         { "id": 10, "group_name": "Google", "month": "Oct", "employees_no": 28927 },
+         { "id": 11, "group_name": "Google", "month": "Nov", "employees_no": 21795 },
+         { "id": 12, "group_name": "Google", "month": "Dec", "employees_no": 49217 },
+         { "id": 13, "group_name": "Apple", "month": "Jan", "employees_no": 28827 },
+         { "id": 14, "group_name": "Apple", "month": "Feb", "employees_no": 13671 },
+         { "id": 15, "group_name": "Apple", "month": "Mar", "employees_no": 27670 },
+         { "id": 16, "group_name": "Apple", "month": "Apr", "employees_no": 6274 },
+         { "id": 17, "group_name": "Apple", "month": "May", "employees_no": 12563 },
+         { "id": 18, "group_name": "Apple", "month": "Jun", "employees_no": 31263 },
+         { "id": 19, "group_name": "Apple", "month": "Jul", "employees_no": 24848 },
+         { "id": 20, "group_name": "Apple", "month": "Aug", "employees_no": 41199 },
+         { "id": 21, "group_name": "Apple", "month": "Sep", "employees_no": 18952 },
+         { "id": 22, "group_name": "Apple", "month": "Oct", "employees_no": 30701 },
+         { "id": 23, "group_name": "Apple", "month": "Nov", "employees_no": 16554 },
+         { "id": 24, "group_name": "Apple", "month": "Dec", "employees_no": 36399 },
+         { "id": 25, "group_name": "Microsoft", "month": "Jan", "employees_no": 38674 },
+         { "id": 26, "group_name": "Microsoft", "month": "Feb", "employees_no": 9595 },
+         { "id": 27, "group_name": "Microsoft", "month": "Mar", "employees_no": 7520 },
+         { "id": 28, "group_name": "Microsoft", "month": "Apr", "employees_no": 2568 },
+         { "id": 29, "group_name": "Microsoft", "month": "May", "employees_no": 6583 },
+         { "id": 30, "group_name": "Microsoft", "month": "Jun", "employees_no": 44485 },
+         { "id": 31, "group_name": "Microsoft", "month": "Jul", "employees_no": 3405 },
+         { "id": 32, "group_name": "Microsoft", "month": "Aug", "employees_no": 31709 },
+         { "id": 33, "group_name": "Microsoft", "month": "Sep", "employees_no": 45442 },
+         { "id": 34, "group_name": "Microsoft", "month": "Oct", "employees_no": 37580 },
+         { "id": 35, "group_name": "Microsoft", "month": "Nov", "employees_no": 23445 },
+         { "id": 36, "group_name": "Microsoft", "month": "Dec", "employees_no": 7554 },
+         { "id": 37, "group_name": "Samsung", "month": "Jan", "employees_no": 40110 },
+         { "id": 38, "group_name": "Samsung", "month": "Feb", "employees_no": 35605 },
+         { "id": 39, "group_name": "Samsung", "month": "Mar", "employees_no": 15768 },
+         { "id": 40, "group_name": "Samsung", "month": "Apr", "employees_no": 15075 },
+         { "id": 41, "group_name": "Samsung", "month": "May", "employees_no": 12424 },
+         { "id": 42, "group_name": "Samsung", "month": "Jun", "employees_no": 12227 },
+         { "id": 43, "group_name": "Samsung", "month": "Jul", "employees_no": 40906 },
+         { "id": 44, "group_name": "Samsung", "month": "Aug", "employees_no": 34032 },
+         { "id": 45, "group_name": "Samsung", "month": "Sep", "employees_no": 18110 },
+         { "id": 46, "group_name": "Samsung", "month": "Oct", "employees_no": 4755 },
+         { "id": 47, "group_name": "Samsung", "month": "Nov", "employees_no": 42202 },
+         { "id": 48, "group_name": "Samsung", "month": "Dec", "employees_no": 36183 }
+      ];
+   }
+
+   getFilteredData = function() {
+      return [
+         { "id": 1, "group_name": "Google", "month": "Jan", "employees_no": 38367 },
+         { "id": 2, "group_name": "Google", "month": "Feb", "employees_no": 32684 },
+         { "id": 3, "group_name": "Google", "month": "Mar", "employees_no": 28236 },
+         { "id": 4, "group_name": "Google", "month": "Apr", "employees_no": 44205 },
+         { "id": 5, "group_name": "Google", "month": "May", "employees_no": 3357 },
+         { "id": 6, "group_name": "Google", "month": "Jun", "employees_no": 3511 },
+         { "id": 7, "group_name": "Google", "month": "Jul", "employees_no": 10372 },
+         { "id": 8, "group_name": "Google", "month": "Aug", "employees_no": 15565 },
+         { "id": 29, "group_name": "Microsoft", "month": "May", "employees_no": 6583 },
+         { "id": 30, "group_name": "Microsoft", "month": "Jun", "employees_no": 44485 },
+         { "id": 31, "group_name": "Microsoft", "month": "Jul", "employees_no": 3405 },
+         { "id": 32, "group_name": "Microsoft", "month": "Aug", "employees_no": 31709 },
+         { "id": 33, "group_name": "Microsoft", "month": "Sep", "employees_no": 45442 },
+         { "id": 34, "group_name": "Microsoft", "month": "Oct", "employees_no": 37580 },
+         { "id": 35, "group_name": "Microsoft", "month": "Nov", "employees_no": 23445 },
+         { "id": 36, "group_name": "Microsoft", "month": "Dec", "employees_no": 7554 },
+         { "id": 48, "group_name": "Samsung", "month": "Dec", "employees_no": 36183 }
+      ];
+   }
+</script>
+
+</html>

@@ -1,0 +1,83 @@
+/*
+ *   Animated bar chart library v1.0
+ *   bar.chart.css
+ *   Author: vnidev
+ *
+ *   License: Open source - MIT
+ *   Please visit http://opensource.org/licenses/MIT for more information
+ *
+ *   Full details and documentation:
+ *   https://github.com/vnidev/animated-bar-chart.git
+ */
+
+html, body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* style for bar chart div container */
+.bcBar {
+
+}
+
+/* style for bar chart svg container */
+.bcBar svg {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* style for bar chart text on bar mouse hover  */
+.bcBar svg .title-text {
+	font-size: 14px;
+}
+
+/* style for bar chart x and y axis text  */
+.bcBar .yaxis text, .bcBar .xaxis text {
+	font-size: 10px;
+}
+
+/* style for bar chart x and y axis grid lines  */
+.bcBar .x_lines line, .bcBar .y_lines line {
+	stroke: rgba(0, 0, 0, 0.07);
+	stroke-width: 1px;
+}
+
+/* style for bar chart x and y axis grid lines path */
+.bcBar .x_lines path, .bcBar .y_lines path {
+	stroke-width: 0;
+}
+
+.bcBar .legend_div {
+	margin-bottom: 5px;
+}
+
+.bcBar .legend_div ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.bcBar .legend_div ul {
+	list-style-type: none;
+	padding: 0;
+	margin: auto;
+	display: table;
+}
+
+.bcBar .legend_div ul li {
+	display: table-cell;
+	vertical-align: middle;
+	padding-right: 50px;
+}
+
+.bcBar .legend_div ul li p {
+	font-size: 14px;
+	padding: 0 0 0 5px;
+	margin: 0;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.bcBar .legend_div ul li div {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
