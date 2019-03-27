@@ -14,7 +14,7 @@ jQuery plugin for rendering animated bar charts using [jQuery](https://jquery.co
 ## About
 
 ![Bar chart](./images/bar_chart.jpg)
-My goal is to keep this plugin light (5.4kb compressed for now) and simple to use. I'm not planning to implement all of D3.js library features into it. There is a source in src folder, so feel free to experiment with code. You can find some examples with different settings in examples folder. For the complete list of options see [Documentation](#documentation) section.
+My goal is to keep this plugin light and simple to use. I'm not planning to implement all of D3.js library features into it. There is a source in src folder, so feel free to experiment with code. You can find some examples with different settings in examples folder. For the complete list of options see [Documentation](#documentation) section.
 
 ## Download and install
 You need to include D3.js, jQuery and bar chart libraries. For D3 and jQuery, visit their web sites or include scripts in your head tag. Copy dist folder to your project and include:
@@ -23,7 +23,7 @@ You need to include D3.js, jQuery and bar chart libraries. For D3 and jQuery, vi
 <link rel="stylesheet" href="./dist/bar.chart.min.css" />
 
 <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
-<script src='https://d3js.org/d3.v5.min.js'></script>
+<script src='https://d3js.org/d3.v4.min.js'></script>
 <script src="./dist/jquery.bar.chart.min.js"></script>
 ```
 
