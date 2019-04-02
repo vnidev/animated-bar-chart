@@ -307,7 +307,7 @@ chart.updateChart({ data: new_chart_data });
 
 ## Changelog
 ###### v1.1
-* Horizontal bar orientation (option: horizontal_bars, default: true), look at horizontal bar example (examples/horizontal_example.html).
+* Horizontal bar orientation (option: horizontal_bars, default: false), look at horizontal bar example (examples/horizontal_example.html).
 * Code optimization
 
 ## To be done
