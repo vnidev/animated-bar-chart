@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+   <title>
+      Animated Bar Chart
+   </title>
+   <link rel="stylesheet" href="../dist/bar.chart.min.css" />
+   <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+   <script src='https://d3js.org/d3.v4.min.js'></script>
+   <script src="../dist/jquery.bar.chart.min.js"></script>
+   <style>
+      .link {
+         color: #b5b5b5;
+      }
+
+      .link:hover {
+         color: #FF7F0E;
+      }
+
+      .link-active {
+         color: #1F77B4;
+      }
+   </style>
+</head>
+<body>
+   <h1>Horizontal Chart initialization</h1>
+   <div id="chtAnimatedBarChart" class="bcBar"></div>
+
+   <a id="lnkAll" href='javascript:initChartAll()' class="link link-active">All data</a> |
+   <a id="lnkFiltered" href='javascript:initChartFiltered()' class="link">Filtered data</a>
+</body>
+<script>
+   var chart;
+
+   $(function() {
+      initChart();
+
+   });
+
+   initChart = function() {
+      var chart_data = getData();
+      chart = $('#chtAnimatedBarChart').animatedBarChart({
+         data: chart_data,
+         horizontal_bars: true,
+         margin: { left: 40 },
+         rotate_x_axis_labels: { bottom_margin: 22 },
+         y_grid_lines: false
+      });
+   }
+
+   initChartAll = function() {
+      $('.link-active').removeClass('link-active');
+      $('#lnkAll').addClass('link-active');
+
+      var data = getData();
+      chart.updateChart({ data: data });
+   }
+
+   initChartFiltered = function() {
+      $('.link-active').removeClass('link-active');
+      $('#lnkFiltered').addClass('link-active');
+
+      var data = getFilteredData();
+      chart.updateChart({ data: data });
+   }
+
+   getData = function() {
+      return [
+         { "group_name": "Google", "name": "Jan", "value": 38367 },
+         { "group_name": "Google", "name": "Feb", "value": 32684 },
+         { "group_name": "Google", "name": "Mar", "value": 28236 },
+         { "group_name": "Google", "name": "Apr", "value": 44205 },
+         { "group_name": "Google", "name": "May", "value": 3357 },
+         { "group_name": "Google", "name": "Jun", "value": 3511 },
+         { "group_name": "Google", "name": "Jul", "value": 10372 },
+         { "group_name": "Google", "name": "Aug", "value": 15565 },
+         { "group_name": "Google", "name": "Sep", "value": 23752 },
+         { "group_name": "Google", "name": "Oct", "value": 28927 },
+         { "group_name": "Google", "name": "Nov", "value": 21795 },
+         { "group_name": "Google", "name": "Dec", "value": 49217 },
+         { "group_name": "Apple", "name": "Jan", "value": 28827 },
+         { "group_name": "Apple", "name": "Feb", "value": 13671 },
+         { "group_name": "Apple", "name": "Mar", "value": 27670 },
+         { "group_name": "Apple", "name": "Apr", "value": 6274 },
+         { "group_name": "Apple", "name": "May", "value": 12563 },
+         { "group_name": "Apple", "name": "Jun", "value": 31263 },
+         { "group_name": "Apple", "name": "Jul", "value": 24848 },
+         { "group_name": "Apple", "name": "Aug", "value": 41199 },
+         { "group_name": "Apple", "name": "Sep", "value": 18952 },
+         { "group_name": "Apple", "name": "Oct", "value": 30701 },
+         { "group_name": "Apple", "name": "Nov", "value": 16554 },
+         { "group_name": "Apple", "name": "Dec", "value": 36399 },
+         { "group_name": "Microsoft", "name": "Jan", "value": 38674 },
+         { "group_name": "Microsoft", "name": "Feb", "value": 9595 },
+         { "group_name": "Microsoft", "name": "Mar", "value": 7520 },
+         { "group_name": "Microsoft", "name": "Apr", "value": 2568 },
+         { "group_name": "Microsoft", "name": "May", "value": 6583 },
+         { "group_name": "Microsoft", "name": "Jun", "value": 44485 },
+         { "group_name": "Microsoft", "name": "Jul", "value": 3405 },
+         { "group_name": "Microsoft", "name": "Aug", "value": 31709 },
+         { "group_name": "Microsoft", "name": "Sep", "value": 45442 },
+         { "group_name": "Microsoft", "name": "Oct", "value": 37580 },
+         { "group_name": "Microsoft", "name": "Nov", "value": 23445 },
+         { "group_name": "Microsoft", "name": "Dec", "value": 7554 },
+         { "group_name": "Samsung", "name": "Jan", "value": 40110 },
+         { "group_name": "Samsung", "name": "Feb", "value": 35605 },
+         { "group_name": "Samsung", "name": "Mar", "value": 15768 },
+         { "group_name": "Samsung", "name": "Apr", "value": 15075 },
+         { "group_name": "Samsung", "name": "May", "value": 12424 },
+         { "group_name": "Samsung", "name": "Jun", "value": 12227 },
+         { "group_name": "Samsung", "name": "Jul", "value": 40906 },
+         { "group_name": "Samsung", "name": "Aug", "value": 34032 },
+         { "group_name": "Samsung", "name": "Sep", "value": 18110 },
+         { "group_name": "Samsung", "name": "Oct", "value": 4755 },
+         { "group_name": "Samsung", "name": "Nov", "value": 42202 },
+         { "group_name": "Samsung", "name": "Dec", "value": 36183 }
+      ];
+   }
+
+   getFilteredData = function() {
+      return [
+         { "group_name": "Microsoft", "name": "Jan", "value": 38674 },
+         { "group_name": "Microsoft", "name": "Feb", "value": 9595 },
+         { "group_name": "Microsoft", "name": "Mar", "value": 7520 },
+         { "group_name": "Microsoft", "name": "Apr", "value": 2568 },
+         { "group_name": "Microsoft", "name": "May", "value": 6583 },
+         { "group_name": "Microsoft", "name": "Jun", "value": 44485 },
+         { "group_name": "Microsoft", "name": "Jul", "value": 3405 },
+         { "group_name": "Microsoft", "name": "Aug", "value": 31709 },
+         { "group_name": "Microsoft", "name": "Sep", "value": 45442 },
+         { "group_name": "Microsoft", "name": "Oct", "value": 37580 },
+         { "group_name": "Microsoft", "name": "Nov", "value": 23445 },
+         { "group_name": "Microsoft", "name": "Dec", "value": 7554 },
+         { "group_name": "Samsung", "name": "Jan", "value": 40110 },
+         { "group_name": "Samsung", "name": "Feb", "value": 35605 },
+         { "group_name": "Samsung", "name": "Mar", "value": 15768 },
+         { "group_name": "Samsung", "name": "Apr", "value": 15075 },
+         { "group_name": "Samsung", "name": "May", "value": 12424 },
+         { "group_name": "Samsung", "name": "Jun", "value": 12227 },
+         { "group_name": "Samsung", "name": "Jul", "value": 40906 },
+         { "group_name": "Samsung", "name": "Aug", "value": 34032 },
+         { "group_name": "Samsung", "name": "Sep", "value": 18110 },
+         { "group_name": "Samsung", "name": "Oct", "value": 4755 },
+         { "group_name": "Samsung", "name": "Nov", "value": 42202 },
+         { "group_name": "Samsung", "name": "Dec", "value": 36183 }
+      ];
+   }
+
+
+</script>
+
+</html>

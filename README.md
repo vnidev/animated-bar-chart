@@ -1,6 +1,6 @@
 # Animated bar chart - jQuery plugin
-
 jQuery plugin for rendering animated bar charts using [jQuery](https://jquery.com/) and [D3.js](https://d3js.org/) library.
+###### Current version: v1.1
 
 ## Table of Contents
 
@@ -9,6 +9,7 @@ jQuery plugin for rendering animated bar charts using [jQuery](https://jquery.co
 * [Quick Start](#quick-start)
 * [Documentation](#documentation)
 * [Updating chart](#updating-chart)
+* [Changelog](#changelog)
 * [To be done](#to-be-done)
 
 ## About
@@ -271,6 +272,21 @@ $('#chtAnimatedBarChart').animatedBarChart({
    }
 });
 ```
+---
+###### option: horizontal_bars - type: boolean
+Default value is **false**. With this setting, you can change default vertical to horizontal orientation.
+
+![Horizontal bar chart](./images/hor_bar_chart.jpg)
+
+Usage:
+```
+var chart_data = getData();
+chart = $('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   horizontal_bars: true
+});
+```
+
 
 ## Updating chart
 You can update chart data by calling updateChart function. See **filter_data_example.html** from examples folder.
@@ -289,8 +305,12 @@ chart.updateChart({ data: new_chart_data });
 
 ```
 
+## Changelog
+###### v1.1
+* Horizontal bar orientation (option: horizontal_bars, default: true), look at horizontal bar example (examples/horizontal_example.html).
+* Code optimization
+
 ## To be done
-* Chart orientation (horizontal/vertical bars),
+* ~~Chart orientation (horizontal/vertical bars)~~,
 * Display values on bars
-* Different types of scale (time scale for x or y axis),
 * ...

@@ -10,13 +10,26 @@
    <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
    <script src='https://d3js.org/d3.v4.min.js'></script>
    <script src="../dist/jquery.bar.chart.min.js"></script>
+   <style>
+      .link {
+         color: #b5b5b5;
+      }
+
+      .link:hover {
+         color: #FF7F0E;
+      }
+
+      .link-active {
+         color: #1F77B4;
+      }
+   </style>
 </head>
 <body>
    <h1>Chart initialization with update</h1>
    <div id="chtAnimatedBarChart" class="bcBar"></div>
 
-   <a href='javascript:initChartAll()'>All data</a> |
-   <a href='javascript:initChartSome()'>Filtered data</a>
+   <a id="lnkAll" href='javascript:initChartAll()' class="link link-active">All data</a> |
+   <a id="lnkFiltered" href='javascript:initChartFiltered()' class="link">Filtered data</a>
 </body>
 <script>
    var chart;
@@ -43,11 +56,17 @@
    }
 
    initChartAll = function() {
+      $('.link-active').removeClass('link-active');
+      $('#lnkAll').addClass('link-active');
+
       var data = getData();
       chart.updateChart({ data: data });
    }
 
-   initChartSome = function() {
+   initChartFiltered = function() {
+      $('.link-active').removeClass('link-active');
+      $('#lnkFiltered').addClass('link-active');
+
       var data = getFilteredData();
       chart.updateChart({ data: data });
    }
