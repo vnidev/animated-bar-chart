@@ -63,7 +63,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 
 #### List of available options
 
-###### option: data - type: array of objects
+#### option: data - type: array of objects
 Default [].
 
 Data that will be used for chart rendering. You need to have 3 properties in every object of data array:
@@ -80,7 +80,7 @@ Example:
 ...
 ```
 ---
-###### option: params - type: object
+#### option: params - type: object
 Properties:
 * **group_name** - default: 'group_name', type: string,
 * **name** - default: 'name', type: string,
@@ -106,7 +106,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 });
 ```
 ---
-###### option: chart_height - type: number
+#### option: chart_height - type: number
 Default value is **400**. Height of the chart in pixels.
 
 Usage:
@@ -117,7 +117,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 });
 ```
 ---
-###### option: colors - type: array
+#### option: colors - type: array
 Default value is **null**. There is already 10 predefined colors that will be used for different groups. You can override this setting by defining your own colors.
 
 Usage:
@@ -128,7 +128,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 });
 ```
 ---
-###### option: show_legend - type: boolean
+#### option: show_legend - type: boolean
 Default value is **true**. Chart legend will be automatically generated below chart with your **group_name** values. You can hide legend by sending **false** through show legend option.
 
 ![Bar legend](./images/chart_legend.jpg)
@@ -141,7 +141,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 });
 ```
 ---
-###### option: x_grid_lines - type: boolean
+#### option: x_grid_lines - type: boolean
 Default value is **true**. Display horizontal grid lines. You can hide horizontal grid lines by sending **false** through this option.
 
 Usage:
@@ -152,7 +152,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 });
 ```
 ---
-###### option: y_grid_lines - type: boolean
+#### option: y_grid_lines - type: boolean
 Default value is **true**. Display vertical grid lines. You can hide vertical grid lines by sending **false** through this option.
 
 Usage:
@@ -163,7 +163,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 });
 ```
 ---
-###### option: tweenDuration - type: int
+#### option: tweenDuration - type: int
 Default value is **300**. Speed of bar animation in milliseconds.
 
 Usage:
@@ -174,7 +174,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 });
 ```
 ---
-###### option: bars - type: object
+#### option: bars - type: object
 Default bar settings.
 Properties:
 * **padding** - default: 0.075, type: number - default bar group padding,
@@ -201,7 +201,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 });
 ```
 ---
-###### option: number_format - type: object
+#### option: number_format - type: object
 Default format for numbers. Properties:
 * **format** - default: ',.2f', type: string - default chart number format,
 * **decimal** - default: '.', type: number - default symbol for the decimal separator,
@@ -225,7 +225,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 });
 ```
 ---
-###### option: margin - type: object
+#### option: margin - type: object
 Default chart margins. Properties:
 * **top** - default: 0, type: number - default chart top margin,
 * **right** - default: 35, type: number - default chart right margin,
@@ -245,7 +245,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 });
 ```
 ---
-###### option: rotate_x_axis_labels - type: object
+#### option: rotate_x_axis_labels - type: object
 With this setting, chart will automatically rotate x axis labels when screen resolution is less then minimun_resolution property.
 
 Properties:
@@ -273,7 +273,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 });
 ```
 ---
-###### option: horizontal_bars - type: boolean
+#### option: horizontal_bars - type: boolean
 Default value is **false**. With this setting, you can change default vertical to horizontal orientation.
 
 ![Horizontal bar chart](./images/hor_bar_chart.jpg)
