@@ -1,4 +1,4 @@
-/*
+/**
  *   Animated bar chart library v1.0
  *   jquery.bar.chart.js
  *   Author: vnidev
@@ -9,9 +9,17 @@
  *   Full details and documentation:
  *   https://github.com/vnidev/animated-bar-chart.git
  */
-
 (function($) {
-
+   /**
+   * Initial function for generating animated bar chart
+   *
+   * @example
+   *  $('#chtAnimatedBarChart').animatedBarChart(options);
+   *
+   * @param prop {Object} list of options for chart initialization
+   *
+   * @return {Object}
+   */
    $.fn.animatedBarChart = function(prop) {
       var self = this;
       var item_id = $(self).attr('id');
@@ -61,6 +69,7 @@
          }
       }, prop);
 
+      // initialize default colors if colors option is null
       if (!defaults.colors) {
          defaults.colors = [];
          var temp_color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -68,9 +77,11 @@
          defaults.colors.push(temp_color(i));
       }
 
+      // init top maring for details label
       var chart_container_margin = 0;
       if (!defaults.bars.disable_hover) chart_container_margin = 20;
 
+      // init group distinct for chart and legend
       var data_distinct = [];
       $.each(defaults.data, function(idx, item) {
          data_distinct.push(item[defaults.params.group_name]);
@@ -140,9 +151,13 @@
       var ul_container;
       if (defaults.show_legend) ul_container = d3.select('#' + item_id).append('div').attr('class', 'legend_div').append('ul');
 
-      /**************************************************************************************/
-      /*** function for chart render ********************************************************/
-      /**************************************************************************************/
+      /**
+      * Main function for chart rendering
+      *
+      * @example
+      *  self.render();
+      *
+      */
       self.render = function () {
          // redraw y scale for new values
          _yScale.domain([0, d3.max(defaults.data, function(d) { return d[defaults.params.value] })]);
@@ -244,7 +259,13 @@
             .style('opacity', 0).remove();
       }
 
-      // generate chart legend
+      /**
+      * Main function for chart legend render
+      *
+      * @example
+      *  self.addChartLegend();
+      *
+      */
       self.addChartLegend = function() {
 
          // init li elements for legend
@@ -264,10 +285,15 @@
          div_legend.exit().remove();
       }
 
-
-      /**************************************************************************************/
-      /*** function for chart update ********************************************************/
-      /**************************************************************************************/
+      /**
+      * Main function for chart rendering
+      *
+      * @example
+      *  chart.updateChart(new_options);
+      *
+      * @param prop {Object} list of options for chart update
+      *
+      */
       self.updateChart = function (prop) {
          defaults = $.extend(defaults, prop);
 
@@ -280,11 +306,17 @@
          self.render();
       };
 
-      /**************************************************************************************/
-      /*** function for get item index from data_distinct ***********************************/
-      /**************************************************************************************/
-      self.getDistinctDataIndex = function(item)
-      {
+      /**
+      * Main function for get item index from data_distinct
+      *
+      * @example
+      *  chart.getDistinctDataIndex(item);
+      *
+      * @param item {Object} object to get index from data distinct
+      *
+      * @return {Number}
+      */
+      self.getDistinctDataIndex = function(item) {
          var index = 0;
          $.each(data_distinct, function(idx, curr_item) {
             if (item == curr_item)
@@ -300,6 +332,7 @@
       // render initial chart
       self.render();
 
+      // return self
       return self;
    }
 

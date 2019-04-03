@@ -1,4 +1,4 @@
-/*
+/**
  *   Animated bar chart library v1.1
  *   jquery.bar.chart.js
  *   Author: vnidev
@@ -9,9 +9,18 @@
  *   Full details and documentation:
  *   https://github.com/vnidev/animated-bar-chart.git
  */
-
 (function($) {
 
+   /**
+   * Initial function for generating animated bar chart
+   *
+   * @example
+   *  $('#chtAnimatedBarChart').animatedBarChart(options);
+   *
+   * @param prop {Object} list of options for chart initialization
+   *
+   * @return {Object}
+   */
    $.fn.animatedBarChart = function(prop) {
       var self = this;
       var item_id = $(self).attr('id');
@@ -72,11 +81,14 @@
       function make_x_gridlines() { return d3.axisBottom(_xScale); }
       function make_y_gridlines() { return d3.axisLeft(_yScale); }
 
-      /**************************************************************************************/
-      /*** function for chart init **********************************************************/
-      /**************************************************************************************/
-      self.init = function()
-      {
+      /**
+      * Main function for chart init
+      *
+      * @example
+      *  self.init();
+      *
+      */
+      self.init = function() {
          // initialize default colors if colors option is null
          if (!defaults.colors) {
             defaults.colors = [];
@@ -167,9 +179,13 @@
          self.render();
       }
 
-      /**************************************************************************************/
-      /*** function for chart render ********************************************************/
-      /**************************************************************************************/
+      /**
+      * Main function for chart rendering
+      *
+      * @example
+      *  self.render();
+      *
+      */
       self.render = function () {
          if (defaults.horizontal_bars) { // horizontal bar chart
             // redraw y scale for new values
@@ -303,9 +319,15 @@
             .style('opacity', 0).remove();
       }
 
-      /**************************************************************************************/
-      /*** function for chart update ********************************************************/
-      /**************************************************************************************/
+      /**
+      * Main function for chart rendering
+      *
+      * @example
+      *  chart.updateChart(new_options);
+      *
+      * @param prop {Object} list of options for chart update
+      *
+      */
       self.updateChart = function (prop) {
          defaults = $.extend(defaults, prop);
 
@@ -318,11 +340,14 @@
          self.render();
       };
 
-      /**************************************************************************************/
-      /*** function for generate legend *****************************************************/
-      /**************************************************************************************/
+      /**
+      * Main function for chart legend render
+      *
+      * @example
+      *  self.addChartLegend();
+      *
+      */
       self.addChartLegend = function() {
-
          // init li elements for legend
          var div_legend = ul_container.selectAll('li').data(data_distinct);
 
@@ -340,9 +365,16 @@
          div_legend.exit().remove();
       }
 
-      /**************************************************************************************/
-      /*** function for get item index from data_distinct ***********************************/
-      /**************************************************************************************/
+      /**
+      * Main function for get item index from data_distinct
+      *
+      * @example
+      *  chart.getDistinctDataIndex(item);
+      *
+      * @param item {Object} object to get index from data distinct
+      *
+      * @return {Number}
+      */
       self.getDistinctDataIndex = function(item)
       {
          var index = 0;
@@ -359,7 +391,7 @@
       // chart initialization
       self.init();
 
+      // return self
       return self;
    }
-
 }(jQuery));
