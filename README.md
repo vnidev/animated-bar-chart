@@ -1,8 +1,7 @@
-# Animated bar chart - jQuery plugin [![Inline docs](http://inch-ci.org/github/vnidev/animated-bar-chart.svg?branch=master)](http://inch-ci.org/github/vnidev/animated-bar-chart) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/vnidev/animated-bar-chart/issues)
-
+# Animated bar chart - jQuery plugin
+![GitHub release](https://img.shields.io/github/release/vnidev/animated-bar-chart.svg) ![GitHub file size in bytes](https://img.shields.io/github/size/vnidev/animated-bar-chart/dist/jquery.bar.chart.min.js.svg?label=minified%20size) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/vnidev/animated-bar-chart/issues) [![Inline docs](http://inch-ci.org/github/vnidev/animated-bar-chart.svg?branch=master)](http://inch-ci.org/github/vnidev/animated-bar-chart)
 
 jQuery plugin for rendering animated bar charts using [jQuery](https://jquery.com/) and [D3.js](https://d3js.org/) library.
-###### Current version: v1.1
 
 ## Table of Contents
 
