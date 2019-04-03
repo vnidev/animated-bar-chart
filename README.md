@@ -1,4 +1,4 @@
-# Animated bar chart - jQuery plugin [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
+# Animated bar chart - jQuery plugin [![Inline docs](http://inch-ci.org/github/vnidev/animated-bar-chart.svg?branch=master)](http://inch-ci.org/github/vnidev/animated-bar-chart) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
 
 jQuery plugin for rendering animated bar charts using [jQuery](https://jquery.com/) and [D3.js](https://d3js.org/) library.
