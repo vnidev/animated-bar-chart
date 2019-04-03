@@ -22,7 +22,7 @@ My goal is to keep this plugin light and simple to use. I'm not planning to impl
 ## Download and install
 You need to include D3.js, jQuery and bar chart libraries. For D3 and jQuery, visit their web sites or include scripts in your head tag. Copy dist folder to your project and include:
 
-```
+```html
 <link rel="stylesheet" href="./dist/bar.chart.min.css" />
 
 <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
@@ -32,12 +32,12 @@ You need to include D3.js, jQuery and bar chart libraries. For D3 and jQuery, vi
 
 ## Quick start
 Add div container to your body tag:
-```
+```html
 <div id="chtAnimatedBarChart" class="bcBar"></div>
 ```
 
 You need to prepare data for the chart:
-```
+```javascript
 var chart_data = [
 { "group_name": "Google", "name": "Jan", "value": 26037 },
 { "group_name": "Google", "name": "Feb", "value": 8597 },
@@ -48,13 +48,13 @@ var chart_data = [
 ```
 
 Then you need to initialize the chart:
-```
+```javascript
 $('#chtAnimatedBarChart').animatedBarChart({ data: chart_data });
 ```
 
 ## Documentation
 There is a few options that can be used to customize the look of the chart. Configuration of the chart can be done by passing the options you want to define into the animatedBarChart constructor as an object. For example:
-```
+```javascript
 $('#chtAnimatedBarChart').animatedBarChart({
    data: chart_data,
    chart_height: 200,
@@ -76,7 +76,7 @@ Data that will be used for chart rendering. You need to have 3 properties in eve
 ![Bar params](./images/chart_params.jpg)
 
 Example:
-```
+```javascript
 { "group_name": "Google", "name": "Jan", "value": 26037 },
 { "group_name": "Google", "name": "Feb", "value": 8597 },
 ...
@@ -91,13 +91,13 @@ Properties:
 You can customize which properties from your data will be rendered.
 
 Usage: if your data is in format:
-```
+```javascript
 { "company": "Google", "month": "Jan", "employees_no": 26037 },
 { "company": "Google", "month": "Feb", "employees_no": 8597 },
 ...
 ```
 You can set default options to:
-```
+```javascript
 $('#chtAnimatedBarChart').animatedBarChart({
    data: chart_data,
    params: {
@@ -112,7 +112,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 Default value is **400**. Height of the chart in pixels.
 
 Usage:
-```
+```javascript
 $('#chtAnimatedBarChart').animatedBarChart({
    data: chart_data,
    chart_height: 200
@@ -123,7 +123,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 Default value is **null**. There is already 10 predefined colors that will be used for different groups. You can override this setting by defining your own colors.
 
 Usage:
-```
+```javascript
 $('#chtAnimatedBarChart').animatedBarChart({
    data: chart_data,
    colors: ['red', 'blue', 'lime', ...] or ['#f44242', '#0048ff', '#04ff00', ...]
@@ -136,7 +136,7 @@ Default value is **true**. Chart legend will be automatically generated below ch
 ![Bar legend](./images/chart_legend.jpg)
 
 Usage:
-```
+```javascript
 $('#chtAnimatedBarChart').animatedBarChart({
    data: chart_data,
    show_legend: false
@@ -147,7 +147,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 Default value is **true**. Display horizontal grid lines. You can hide horizontal grid lines by sending **false** through this option.
 
 Usage:
-```
+```javascript
 $('#chtAnimatedBarChart').animatedBarChart({
    data: chart_data,
    x_grid_lines: false
@@ -158,7 +158,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 Default value is **true**. Display vertical grid lines. You can hide vertical grid lines by sending **false** through this option.
 
 Usage:
-```
+```javascript
 $('#chtAnimatedBarChart').animatedBarChart({
    data: chart_data,
    y_grid_lines: false
@@ -169,7 +169,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 Default value is **300**. Speed of bar animation in milliseconds.
 
 Usage:
-```
+```javascript
 $('#chtAnimatedBarChart').animatedBarChart({
    data: chart_data,
    tweenDuration: 1000
@@ -189,7 +189,7 @@ Properties:
 ![Bar details](./images/chart_details.jpg)
 
 Usage:
-```
+```javascript
 $('#chtAnimatedBarChart').animatedBarChart({
    data: chart_data,
    bars: {
@@ -214,7 +214,7 @@ Default format for numbers. Properties:
 For more about formats, see [D3.js](https://d3js.org/) documentation.
 
 Usage:
-```
+```javascript
 $('#chtAnimatedBarChart').animatedBarChart({
    data: chart_data,
    number_format: {
@@ -235,7 +235,7 @@ Default chart margins. Properties:
 * **left**: default: 70, type: number - default chart left margin.
 
 Usage:
-```
+```javascript
 $('#chtAnimatedBarChart').animatedBarChart({
    data: chart_data,
    margin: {
@@ -261,7 +261,7 @@ Properties:
 ![Bar label rotation](./images/chart_rotation.jpg)
 
 Usage:
-```
+```javascript
 $('#chtAnimatedBarChart').animatedBarChart({
    data: chart_data,
    rotate_x_axis_labels: {
@@ -281,7 +281,7 @@ Default value is **false**. With this setting, you can change default vertical t
 ![Horizontal bar chart](./images/hor_bar_chart.jpg)
 
 Usage:
-```
+```javascript
 var chart_data = getData();
 chart = $('#chtAnimatedBarChart').animatedBarChart({
    data: chart_data,
@@ -295,14 +295,14 @@ You can update chart data by calling updateChart function. See **filter_data_exa
 
 Usage:
 First, you need to initialize the chart:
-```
+```javascript
 var chart = $('#chtAnimatedBarChart').animatedBarChart({
    data: chart_data,
    ...
 });
 ```
 Then you need to call updateChart function with new data and options:
-```
+```javascript
 chart.updateChart({ data: new_chart_data });
 
 ```
