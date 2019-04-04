@@ -63,7 +63,7 @@ html, body {
 }
 
 .bcBar .legend_div ul li {
-	display: table-cell;
+	display: inline-block;
 	vertical-align: middle;
 	padding-right: 50px;
 }
