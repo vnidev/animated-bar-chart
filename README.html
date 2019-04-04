@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+   <title>Animated bar chart</title>
+   <style>
+      body {
+         font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+         font-size: 16px;
+         line-height: 1.6;
+         text-align: justify;
+         word-wrap: break-word;
+
+         width: 728px;
+         max-width: 728px;
+         box-sizing: border-box;
+         margin-left: auto;
+         margin-right: auto;
+      }
+
+      body img {
+         max-width: 700px;
+      }
+
+      body a {
+         color: #0374B4;
+      }
+
+      body a:hover {
+         color: #FEA557;
+      }
+
+      .line-through {
+         text-decoration: line-through;
+      }
+   </style>
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+   <script>
+      hljs.initHighlightingOnLoad();
+   </script>
+</head>
+
+<body>
+   <h1>Animated bar chart - jQuery plugin</h1>
+   <p>
+      <img src="https://img.shields.io/github/release/vnidev/animated-bar-chart.svg" alt="GitHub release" />
+      <img src="https://img.shields.io/github/size/vnidev/animated-bar-chart/dist/jquery.bar.chart.min.js.svg?label=minified%20size" alt="GitHub file size in bytes" />
+      <a href="https://github.com/vnidev/animated-bar-chart/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="contributions welcome" /></a>
+      <a href="http://inch-ci.org/github/vnidev/animated-bar-chart"><img src="http://inch-ci.org/github/vnidev/animated-bar-chart.svg?branch=master" alt="Inline docs" /></a>
+   </p>
+   <p>jQuery plugin for rendering animated bar charts using <a href="https://jquery.com/">jQuery</a> and <a href="https://d3js.org/">D3.js</a> library.</p>
+
+   <h2>Table of Contents</h2>
+   <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#download-and-install">Download and Install</a></li>
+      <li><a href="#quick-start">Quick Start</a></li>
+      <li><a href="#documentation">Documentation</a></li>
+      <li><a href="#updating-chart">Updating chart</a></li>
+      <li><a href="#changelog">Changelog</a></li>
+      <li><a href="#to-be-done">To be done</a></li>
+   </ul>
+
+   <h2 id="about">About</h2>
+   <img src="./images/bar_chart.jpg" alt="Bar chart" />
+   <p>
+      My goal is to keep this plugin light and simple to use. I'm not planning to implement all of D3.js library features into it. There is a source in src folder, so feel free to experiment with code. You can find some examples with different
+      settings in examples folder. For the complete list of options see <a href="#documentation">Documentation</a> section.
+   </p>
+
+   <h2 id="downloadandinstall">Download and install</h2>
+   <p>You need to include D3.js, jQuery and bar chart libraries. For D3 and jQuery, visit their web sites or include scripts in your head tag. Copy dist folder to your project and include:</p>
+   <pre><code class="html">&lt;link rel="stylesheet" href="./dist/bar.chart.min.css" /&gt;
+&lt;script src='https://code.jquery.com/jquery-3.3.1.min.js'&gt;&lt;/script&gt;
+&lt;script src='https://d3js.org/d3.v4.min.js'&gt;&lt;/script&gt;
+&lt;script src="./dist/jquery.bar.chart.min.js"&gt;&lt;/script&gt;</code></pre>
+
+   <h2 id="quickstart">Quick start</h2>
+   <p>Add div container to your body tag:</p>
+   <pre><code class="html">&lt;div id="chtAnimatedBarChart" class="bcBar"&gt;&lt;/div&gt;</code></pre>
+   <p>You need to prepare data for the chart:</p>
+   <pre><code class="javascript">var chart_data = [
+{ "group_name": "Google", "name": "Jan", "value": 26037 },
+{ "group_name": "Google", "name": "Feb", "value": 8597 },
+{ "group_name": "Apple", "name": "Jan", "value": 33102 },
+{ "group_name": "Apple", "name": "Feb", "value": 43426 },
+...
+]</code></pre>
+
+   <p>Then you need to initialize the chart:</p>
+   <pre><code class="javascript language-javascript">$('#chtAnimatedBarChart').animatedBarChart({ data: chart_data });</code></pre>
+
+   <h2 id="documentation">Documentation</h2>
+   <p>There is a few options that can be used to customize the look of the chart. Configuration of the chart can be done by passing the options you want to define into the animatedBarChart constructor as an object. For example:</p>
+   <pre><code class="javascript language-javascript">$('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   chart_height: 200,
+   show_legend: false,
+   ...
+});</code></pre>
+
+   <h3 id="listofavailableoptions">List of available options</h3>
+
+   <h4 id="optiondatatypearrayofobjects">option: data - type: array of objects</h4>
+   <p>Default [].</p>
+   <p>Data that will be used for chart rendering. You need to have 3 properties in every object of data array:</p>
+   <ul>
+      <li><strong>group_name</strong> - this property is used for data grouping and for the legend,</li>
+      <li><strong>name</strong> - this property is used for x axis,</li>
+      <li><strong>value</strong> - this property is used for y axis.</li>
+   </ul>
+   <p><img src="./images/chart_params.jpg" alt="Bar params" /></p>
+   <p>Example:</p>
+   <pre><code class="javascript language-javascript">{ "group_name": "Google", "name": "Jan", "value": 26037 },
+{ "group_name": "Google", "name": "Feb", "value": 8597 },
+...</code></pre>
+   <hr />
+
+   <h4 id="optionparamstypeobject">option: params - type: object</h4>
+   <p>Properties:</p>
+   <ul>
+      <li><strong>group_name</strong> - default: 'group_name', type: string,</li>
+      <li><strong>name</strong> - default: 'name', type: string,</li>
+      <li><strong>value</strong>: default: 'value', type: string.</li>
+   </ul>
+   <p>You can customize which properties from your data will be rendered.</p>
+   <p>Usage: if your data is in format:</p>
+   <pre><code class="javascript language-javascript">{ "company": "Google", "month": "Jan", "employees_no": 26037 },
+{ "company": "Google", "month": "Feb", "employees_no": 8597 },
+...</code></pre>
+   <p>You can set default options to:</p>
+   <pre><code class="javascript language-javascript">$('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   params: {
+      group_name: 'company',
+      name: 'month',
+      value: 'employees_no'
+   }
+});</code></pre>
+   <hr />
+
+   <h4 id="optionchart_heighttypenumber">option: chart_height - type: number</h4>
+   <p>Default value is <strong>400</strong>. Height of the chart in pixels.</p>
+   <p>Usage:</p>
+   <pre><code class="javascript language-javascript">$('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   chart_height: 200
+});</code></pre>
+   <hr />
+
+   <h4 id="optioncolorstypearray">option: colors - type: array</h4>
+   <p>Default value is <strong>null</strong>. There is already 10 predefined colors that will be used for different groups. You can override this setting by defining your own colors.</p>
+   <p>Usage:</p>
+   <pre><code class="javascript language-javascript">$('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   colors: ['red', 'blue', 'lime', ...] or ['#f44242', '#0048ff', '#04ff00', ...]
+});</code></pre>
+
+   <hr />
+   <h4 id="optionshow_legendtypeboolean">option: show_legend - type: boolean</h4>
+   <p>Default value is <strong>true</strong>. Chart legend will be automatically generated below chart with your <strong>group_name</strong> values. You can hide legend by sending <strong>false</strong> through show legend option.</p>
+   <p><img src="./images/chart_legend.jpg" alt="Bar legend" /></p>
+   <p>Usage:</p>
+   <pre><code class="javascript language-javascript">$('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   show_legend: false
+});</code></pre>
+   <hr />
+
+   <h4 id="optionx_grid_linestypeboolean">option: x_grid_lines - type: boolean</h4>
+   <p>Default value is <strong>true</strong>. Display horizontal grid lines. You can hide horizontal grid lines by sending <strong>false</strong> through this option.</p>
+   <p>Usage:</p>
+   <pre><code class="javascript language-javascript">$('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   x_grid_lines: false
+});</code></pre>
+   <hr />
+
+   <h4 id="optiony_grid_linestypeboolean">option: y_grid_lines - type: boolean</h4>
+   <p>Default value is <strong>true</strong>. Display vertical grid lines. You can hide vertical grid lines by sending <strong>false</strong> through this option.</p>
+   <p>Usage:</p>
+   <pre><code class="javascript language-javascript">$('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   y_grid_lines: false
+});</code></pre>
+   <hr />
+
+   <h4 id="optiontweendurationtypeint">option: tweenDuration - type: int</h4>
+   <p>Default value is <strong>300</strong>. Speed of bar animation in milliseconds.</p>
+   <p>Usage:</p>
+   <pre><code class="javascript language-javascript">$('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   tweenDuration: 1000
+});</code></pre>
+   <hr />
+
+   <h4 id="optionbarstypeobject">option: bars - type: object</h4>
+   <p>Default bar settings. Properties:</p>
+   <ul>
+      <li><strong>padding</strong> - default: 0.075, type: number - default bar group padding,</li>
+      <li><strong>opacity</strong> - default: 0.7, type: number - default bar opacity,</li>
+      <li><strong>opacity_hover</strong>: default: 0.45, type: number - default bar opacity on mouse hover,</li>
+      <li><strong>disable_hover</strong>: default: false, type: boolean - disable details on mouse hover,</li>
+      <li><strong>hover_name_text</strong>: default: 'name', type: string - text for x axis value in details,</li>
+      <li><strong>hover_value_text</strong>: default: 'value', type: string- text for y axis value in details.</li>
+   </ul>
+   <p><img src="./images/chart_details.jpg" alt="Bar details" /></p>
+   <p>Usage:</p>
+   <pre><code class="javascript language-javascript">$('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   bars: {
+      padding: 0.1,
+      opacity: 0.5,
+      opacity_hover: 0.1,
+      disable_hover: true,
+      hover_name_text: 'month',
+      hover_value_text: 'employees no'
+   }
+});</code></pre>
+   <hr />
+
+   <h4 id="optionnumber_formattypeobject">option: number_format - type: object</h4>
+   <p>Default format for numbers. Properties:</p>
+   <ul>
+      <li><strong>format</strong> - default: ',.2f', type: string - default chart number format,</li>
+      <li><strong>decimal</strong> - default: '.', type: number - default symbol for the decimal separator,</li>
+      <li><strong>thousands</strong>: default: ',', type: number - default symbol for the thousands separator,</li>
+      <li><strong>grouping</strong>: default: [3], type: object - default character grouping,</li>
+      <li><strong>currency</strong>: default: ['$'], type: object - default currency symbol.</li>
+   </ul>
+   <p>For more about formats, see <a href="https://d3js.org/">D3.js</a> documentation.</p>
+   <p>Usage:</p>
+   <pre><code class="javascript language-javascript">$('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   number_format: {
+      format: ',.4f',
+      decimal: ',',
+      thousands: '.',
+      grouping: [2],
+      currency: ['€']
+   }
+});</code></pre>
+   <hr />
+
+   <h4 id="optionmargintypeobject">option: margin - type: object</h4>
+   <p>Default chart margins. Properties:</p>
+   <ul>
+      <li><strong>top</strong> - default: 0, type: number - default chart top margin,</li>
+      <li><strong>right</strong> - default: 35, type: number - default chart right margin,</li>
+      <li><strong>bottom</strong>: default: 20, type: number - default chart bottom margin,</li>
+      <li><strong>left</strong>: default: 70, type: number - default chart left margin.</li>
+   </ul>
+   <p>Usage:</p>
+   <pre><code class="javascript language-javascript">$('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   margin: {
+      top: 100,
+      right: 100,
+      bottom: 100,
+      left: 100
+   }
+});</code></pre>
+   <hr />
+
+   <h4 id="optionrotate_x_axis_labelstypeobject">option: rotate_x_axis_labels - type: object</h4>
+   <p>With this setting, chart will automatically rotate x axis labels when screen resolution is less then minimun_resolution property.</p>
+   <p>Properties:</p>
+   <ul>
+      <li><strong>process</strong> - default: true, type: boolean - disable automatically labels rotation,</li>
+      <li><strong>minimun_resolution</strong> - default: 720, type: number - minimum resolution for labels rotation,</li>
+      <li><strong>bottom_margin</strong>: default: 15, type: number - label bottom margin,</li>
+      <li><strong>rotating_angle</strong>: default: 90, type: number - label rotating angle,</li>
+      <li><strong>x_position</strong>: default: 9, type: number - label x position,</li>
+      <li><strong>y_position</strong>: default: -3, type: number - label y position,</li>
+   </ul>
+   <p><img src="./images/chart_rotation.jpg" alt="Bar label rotation" /></p>
+   <p>Usage:</p>
+   <pre><code class="javascript language-javascript">$('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   rotate_x_axis_labels: {
+      process: false,
+      minimun_resolution: 500,
+      bottom_margin: 30,
+      rotating_angle: 45,
+      x_position: 10,
+      y_position: 0
+   }
+});</code></pre>
+   <hr />
+
+   <h4 id="optionhorizontal_barstypeboolean">option: horizontal_bars - type: boolean</h4>
+   <p>Default value is <strong>false</strong>. With this setting, you can change default vertical to horizontal orientation.</p>
+   <p><img src="./images/hor_bar_chart.jpg" alt="Horizontal bar chart" /></p>
+   <p>Usage:</p>
+   <pre><code class="javascript language-javascript">var chart_data = getData();
+chart = $('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   horizontal_bars: true
+});</code></pre>
+   <h2 id="updatingchart">Updating chart</h2>
+   <p>You can update chart data by calling updateChart function. See <strong>filter_data_example.html</strong> from examples folder.</p>
+   <p>Usage: First, you need to initialize the chart:</p>
+   <pre><code class="javascript language-javascript">var chart = $('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   ...
+});</code></pre>
+   <p>Then you need to call updateChart function with new data and options:</p>
+   <pre><code class="javascript language-javascript">chart.updateChart({ data: new_chart_data });</code></pre>
+
+   <h2 id="changelog">Changelog</h2>
+   <h6 id="v11">v1.1</h6>
+   <ul>
+      <li>Horizontal bar orientation (option: horizontal_bars, default: false), look at horizontal bar example (examples/horizontal_example.html).</li>
+      <li>Code optimization</li>
+   </ul>
+
+   <h2 id="tobedone">To be done</h2>
+   <ul>
+      <li class="line-through">Chart orientation (horizontal/vertical bars),</li>
+      <li>Display values on bars</li>
+      <li>...</li>
+   </ul>
+</body>
+<html>
