@@ -324,7 +324,7 @@ chart.updateChart({ data: new_chart_data });
 ## Changelog
 ###### v1.2
 * Set legend position (option: legend: { position: LegendPosition.right, width: 200 }), look at right legend example (examples/right_legend_example.html),
-* Add resposive styles for the legend,
+* Added responsive style for the legend,
 * Bug Fixes.
 
 ###### v1.1
