@@ -310,6 +310,7 @@ chart.updateChart({ data: new_chart_data });
 ###### v1.1
 * Horizontal bar orientation (option: horizontal_bars, default: false), look at horizontal bar example (examples/horizontal_example.html).
 * Code optimization
+* Fixed legend overlapping
 
 ## To be done
 * ~~Chart orientation (horizontal/vertical bars)~~,
