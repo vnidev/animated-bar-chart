@@ -142,6 +142,24 @@ $('#chtAnimatedBarChart').animatedBarChart({
 });
 ```
 ---
+#### option: legend - type: object
+Default legend settings. Properties:
+* **position** - default: LegendPosition.bottom, type: enum - default legend position (LegendPosition.top, LegendPosition.bottom, LegendPosition.left, LegendPosition.right),
+* **width** - default: 200, type: number - default legend width in pixels for left or right legend position.
+
+![Bar chart legend right](./images/bar_chart_legend_right.jpg)
+
+Usage:
+```javascript
+$('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   legend: {
+      position: LegendPosition.right,
+      width: 150
+   }
+});
+```
+---
 #### option: x_grid_lines - type: boolean
 Default value is **true**. Display horizontal grid lines. You can hide horizontal grid lines by sending **false** through this option.
 
@@ -176,8 +194,7 @@ $('#chtAnimatedBarChart').animatedBarChart({
 ```
 ---
 #### option: bars - type: object
-Default bar settings.
-Properties:
+Default bar settings. Properties:
 * **padding** - default: 0.075, type: number - default bar group padding,
 * **opacity** - default: 0.7, type: number - default bar opacity,
 * **opacity_hover**: default: 0.45, type: number - default bar opacity on mouse hover,
@@ -288,7 +305,6 @@ chart = $('#chtAnimatedBarChart').animatedBarChart({
 });
 ```
 
-
 ## Updating chart
 You can update chart data by calling updateChart function. See **filter_data_example.html** from examples folder.
 
@@ -303,16 +319,21 @@ var chart = $('#chtAnimatedBarChart').animatedBarChart({
 Then you need to call updateChart function with new data and options:
 ```javascript
 chart.updateChart({ data: new_chart_data });
-
 ```
 
 ## Changelog
+###### v1.2
+* Set legend position (option: legend: { position: LegendPosition.right, width: 200 }), look at right legend example (examples/right_legend_example.html),
+* Add resposive styles for the legend,
+* Bug Fixes.
+
 ###### v1.1
-* Horizontal bar orientation (option: horizontal_bars, default: false), look at horizontal bar example (examples/horizontal_example.html).
-* Code optimization
-* Fixed legend overlapping
+* Horizontal bar orientation (option: horizontal_bars, default: false), look at horizontal bar example (examples/horizontal_example.html),
+* Code optimization,
+* Fixed legend overlapping.
 
 ## To be done
 * ~~Chart orientation (horizontal/vertical bars)~~,
-* Display values on bars
+* ~~Legend position~~,
+* Display values on bars,
 * ...

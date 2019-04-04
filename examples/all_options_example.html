@@ -14,7 +14,6 @@
    <div id="chtAnimatedBarChart" class="bcBar"></div>
 </body>
 <script>
-
    $(function() {
       var chart_data = getData();
 
@@ -25,9 +24,14 @@
             name: 'month', // name for xaxis
             value: 'employees_no' // value for yaxis
          },
+         horizontal_bars: false, // default chart orientation
          chart_height: 400, // default chart height in px
          colors: null, // colors for chart
          show_legend: true, // show chart legend
+         legend: { // default legend settings
+            position: LegendPosition.bottom, // legend position (bottom/top/right/left)
+            width: 200 // legend width in pixels for left/right
+         },
          x_grid_lines: false, // show x grid lines
          y_grid_lines: true, // show y grid lines
          tweenDuration: 300, // speed for tranistions

@@ -8,9 +8,7 @@
          font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
          font-size: 16px;
          line-height: 1.6;
-         text-align: justify;
          word-wrap: break-word;
-
          width: 728px;
          max-width: 728px;
          box-sizing: border-box;
@@ -169,6 +167,23 @@
 });</code></pre>
    <hr />
 
+   <h4 id="optionlegendtypeobject">option: legend - type: object</h4>
+   <p>Default legend settings. Properties:</p>
+   <ul>
+      <li><strong>position</strong> - default: LegendPosition.bottom, type: enum - default legend position (LegendPosition.top, LegendPosition.bottom, LegendPosition.left, LegendPosition.right),</li>
+      <li><strong>width</strong> - default: 200, type: number - default legend width in pixels for left or right legend position.</li>
+   </ul>
+   <p><img src="./images/bar_chart_legend_right.jpg" alt="Bar chart legend right" /></p>
+   <p>Usage:</p>
+   <pre><code class="javascript language-javascript">$('#chtAnimatedBarChart').animatedBarChart({
+   data: chart_data,
+   legend: {
+      position: LegendPosition.right,
+      width: 150
+   }
+});</code></pre>
+   <hr />
+
    <h4 id="optionx_grid_linestypeboolean">option: x_grid_lines - type: boolean</h4>
    <p>Default value is <strong>true</strong>. Display horizontal grid lines. You can hide horizontal grid lines by sending <strong>false</strong> through this option.</p>
    <p>Usage:</p>
@@ -310,17 +325,25 @@ chart = $('#chtAnimatedBarChart').animatedBarChart({
    <pre><code class="javascript language-javascript">chart.updateChart({ data: new_chart_data });</code></pre>
 
    <h2 id="changelog">Changelog</h2>
+   <h6 id="v12">v1.2</h6>
+   <ul>
+      <li>Set legend position (option: legend: { position: LegendPosition.right, width: 200 }), look at right legend example (examples/right_legend_example.html),</li>
+      <li>Add resposive styles for the legend,</li>
+      <li>Bug Fixes.</li>
+   </ul>
+
    <h6 id="v11">v1.1</h6>
    <ul>
-      <li>Horizontal bar orientation (option: horizontal_bars, default: false), look at horizontal bar example (examples/horizontal_example.html).</li>
-      <li>Code optimization</li>
-      <li>Fixed legend overlapping</li>
+      <li>Horizontal bar orientation (option: horizontal_bars, default: false), look at horizontal bar example (examples/horizontal_example.html),</li>
+      <li>Code optimization,</li>
+      <li>Fixed legend overlapping.</li>
    </ul>
 
    <h2 id="tobedone">To be done</h2>
    <ul>
       <li class="line-through">Chart orientation (horizontal/vertical bars),</li>
-      <li>Display values on bars</li>
+      <li class="line-through">Legend position,</li>
+      <li>Display values on bars,</li>
       <li>...</li>
    </ul>
 </body>

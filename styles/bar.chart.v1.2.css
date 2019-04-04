@@ -1,0 +1,159 @@
+/*
+ *   Animated bar chart library v1.2
+ *   bar.chart.css
+ *   Author: vnidev
+ *
+ *   License: Open source - MIT
+ *   Please visit http://opensource.org/licenses/MIT for more information
+ *
+ *   Full details and documentation:
+ *   https://github.com/vnidev/animated-bar-chart.git
+ */
+
+html, body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* style for bar chart div container */
+.bcBar {
+
+}
+
+/* style for bar chart svg container */
+.bcBar svg {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* style for bar chart text on bar mouse hover  */
+.bcBar svg .title-text {
+	font-size: 14px;
+}
+
+/* style for bar chart x and y axis text  */
+.bcBar .yaxis text, .bcBar .xaxis text {
+	font-size: 10px;
+}
+
+/* style for bar chart x and y axis grid lines  */
+.bcBar .x_lines line, .bcBar .y_lines line {
+	stroke: rgba(0, 0, 0, 0.07);
+	stroke-width: 1px;
+}
+
+/* style for bar chart x and y axis grid lines path */
+.bcBar .x_lines path, .bcBar .y_lines path {
+	stroke-width: 0;
+}
+
+/* style for bar legend div container */
+.bcBar .legend_div {
+	margin-bottom: 5px;
+}
+
+/* style for bar legend item list */
+.bcBar .legend_div ul {
+	list-style-type: none;
+	padding: 0;
+	margin: auto;
+	display: table;
+}
+
+/* style for bar legend list item */
+.bcBar .legend_div ul li {
+	display: inline-block;
+	vertical-align: middle;
+	padding-right: 50px;
+}
+
+/* style for bar legend list item text */
+.bcBar .legend_div ul li p {
+	font-size: 14px;
+	padding: 0 0 0 5px;
+	margin: 0;
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* style for bar legend list item color container */
+.bcBar .legend_div ul li div {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+
+/* style for bar side legend div container */
+.bcBar .svg_legend_div_side {
+	display: table-cell;
+ 	width: 100%;
+}
+
+/* style for bar side legend div container */
+.bcBar .legend_div_side {
+	margin-bottom: 5px;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+/* style for bar side legend item list */
+.bcBar .legend_div_side ul {
+	list-style-type: none;
+	padding: 0;
+	display: table;
+}
+
+/* style for bar side legend list item */
+.bcBar .legend_div_side ul li {
+	display: block;
+}
+
+/* style for bar side legend list item text */
+.bcBar .legend_div_side ul li p {
+	font-size: 14px;
+	padding: 0 0 0 5px;
+	margin: 0;
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* style for bar side legend list item color container */
+.bcBar .legend_div_side ul li div {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+
+/* if screen resolution is less then 768px */
+@media only screen and (max-width: 768px) {
+	/* style for bar legend list item */
+	.bcBar .legend_div ul li {
+		padding-right: 25px;
+	}
+
+	/* if legened on side move it to the bottom */
+	.bcBar .svg_legend_div_side, .bcBar .legend_div_side {
+		display: table-row;
+	}
+
+	/* style for bar side legend item list */
+	.bcBar .legend_div_side ul {
+		margin: auto;
+	}
+
+	/* style for bar side legend list item */
+	.bcBar .legend_div_side ul li {
+		display: inline-block;
+		padding-right: 25px;
+	}
+
+	/* style for bar legend list item text */
+	.bcBar .legend_div ul li p, .bcBar .legend_div_side ul li p {
+		font-size: 12px;
+		vertical-align: middle;
+	}
+
+	/* style for bar side legend list item color container */
+	.bcBar .legend_div ul li div, .bcBar .legend_div_side ul li div {
+		width: 12px;
+		height: 12px;
+	}
+}
